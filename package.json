@@ -43,11 +43,11 @@
       "UPDATE": true,
       "DELETE": true,
       "CREATE": true,
-      "DROP" : true,
-      "CDL"  : true,
-      "CQL"  : true,
-      "CXL"  : true,
-      "cds"  : true
+      "DROP": true,
+      "CDL": true,
+      "CQL": true,
+      "CXL": true,
+      "cds": true
     },
     "rules": {
       "no-console": "off",
@@ -60,15 +60,22 @@
       "sapbackend": {
         "kind": "odata-v2",
         "model": "srv/external/sapbackend",
-        "credentials": {
-          "requestTimeout": 30000,
-          "url": "http://erp13.sap4practice.com:9037/sap/opu/odata/sap/YSAPUI5_SRV_01",
-          "authentication": "NoAuthentication"
+        "[development]": {
+          "credentials": {
+            "requestTimeout": 30000,
+            "url": "http://erp13.sap4practice.com:9037/sap/opu/odata/sap/YSAPUI5_SRV_01",
+            "authentication": "NoAuthentication"
+          }
+        },
+        "[production]": {
+          "credentials": {
+            "destination": "NPL_Backend"
+          }
         }
       }
     },
     "features": {
-      "graphql": true 
+      "graphql": true
     }
   },
   "sapux": [
