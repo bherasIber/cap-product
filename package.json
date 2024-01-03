@@ -11,6 +11,7 @@
     "@sap/cds": "^7",
     "@sap/cds-hana": "^2",
     "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
+    "@sap/hdi-deploy": "^4.9.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4",
@@ -55,8 +56,13 @@
     }
   },
   "cds": {
+    "features": {
+      "graphql": true
+    },
     "requires": {
-      "db": "hana",
+      "db": {
+        "kind": "hana"
+      },
       "sapbackend": {
         "kind": "odata-v2",
         "model": "srv/external/sapbackend",
@@ -73,9 +79,6 @@
           }
         }
       }
-    },
-    "features": {
-      "graphql": true
     }
   },
   "sapux": [
